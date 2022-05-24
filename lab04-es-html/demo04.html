@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button type="button">Add one</button>
+  <button type="button">Delete one</button>
+  <button type="button">Delete alls</button>
+
+  <ul class="lst_node"></ul>
+
+  <script type="text/javascript">
+    const btns = document.querySelectorAll('button');
+    const ul_node = document.querySelector('.lst_node');
+    var i = 1; 
+
+    btns[0].addEventListener('click', (e) => {
+      // add one
+      let li_node = document.createElement('li');
+      let text_node = document.createTextNode(`${i} items`);
+
+      li_node.appendChild(text_node);
+      ul_node.appendChild(li_node);
+      i++;
+    })
+
+    btns[1].addEventListener('click', (e) => {
+      // delete one
+      if(ul_node.childElementCount > 0) {
+        ul_node.removeChild(ul_node.lastChild);
+        i--;
+      }
+    })
+
+    btns[2].addEventListener('click', (e) => {
+      // delete alls
+      ul_node.innerHTML = '';
+      i = 1;
+    })
+  </script>
+</body>
+</html>
