@@ -1,6 +1,8 @@
-content {
+.content {
   text-align: left;
   padding: 10px;
+  min-height: 70vh;
+  border: 1px solid #700026;
 }
 
 p {
